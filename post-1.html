@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipe Sharing Website</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="logo">Dave Kitchen</div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main style="text-align: center; max-width: 800px; margin: 0 auto;">
+        <div class="article-container" align="center">
+            <h2>How to Make?</h2>
+            <article>
+                <img src="image-2.jpg" alt="Article Image">
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+    proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+    proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            </article>
+            <button id="toggleButton">Share</button>
+            <hr color="#3E3232">
+            <div id="centerBox" class="center-box">
+                <div class="content">
+                    <p><b>Share this Link: </b><u id="link">https://github.com/</u></p>  
+                    <button id="copyLinkButton">Copy Link</button>
+                    <button id="closeButton">Close</button>
+                </div>
+            </div>
+            <div class="comment-section" align="center">
+                <textarea id="commentBox" rows="4" cols="50" placeholder="Enter your comment here..."></textarea>
+                <br>
+                <button id="submitCommentButton">Submit</button>
+                <p id="commentConfirmation" style="display: none;">Your comment has been submitted.</p>
+            </div>
+        </div>
+    </main>
+
+    <footer align="center">
+        <p>&copy; 2024 RCW - Recipe Sharing Website. All rights reserved.</p>
+    </footer>
+</body>
+<script type="text/javascript">
+    // Get the toggle button and center box
+const toggleButton = document.getElementById("toggleButton");
+const centerBox = document.getElementById("centerBox");
+
+// Get the close button inside the center box
+const closeButton = document.getElementById("closeButton");
+
+// Get the copy link button
+const copyLinkButton = document.getElementById("copyLinkButton");
+
+// Get the comment box
+const commentBox = document.getElementById("commentBox");
+
+// Get the submit comment button
+const submitCommentButton = document.getElementById("submitCommentButton");
+
+// Get the comment confirmation message
+const commentConfirmation = document.getElementById("commentConfirmation");
+
+// Add event listener to the toggle button
+toggleButton.addEventListener("click", function() {
+    // Toggle the visibility of the center box
+    if (centerBox.style.display === "none") {
+        centerBox.style.display = "block";
+    } else {
+        centerBox.style.display = "none";
+    }
+});
+
+// Add event listener to the close button
+closeButton.addEventListener("click", function() {
+    // Close the center box
+    centerBox.style.display = "none";
+});
+
+// Add event listener to the copy link button
+copyLinkButton.addEventListener("click", function() {
+    // Get the URL to be copied
+    const link = document.getElementById("link").innerText;
+
+    // Create a temporary input element
+    const tempInput = document.createElement("input");
+    tempInput.setAttribute("value", link);
+    document.body.appendChild(tempInput);
+
+    // Select the text inside the input element
+    tempInput.select();
+
+    // Copy the selected text to the clipboard
+    document.execCommand("copy");
+
+    // Remove the temporary input element
+    document.body.removeChild(tempInput);
+
+    // Provide feedback to the user
+    alert("Link copied to clipboard: " + link);
+});
+
+// Add event listener to the submit comment button
+submitCommentButton.addEventListener("click", function() {
+    // Get the comment from the textarea
+    const comment = commentBox.value;
+
+    // Show the comment confirmation message
+    commentConfirmation.style.display = "block";
+
+    // Do something with the comment (e.g., send it to the server)
+    console.log("Comment submitted:", comment);
+});
+</script>
+</html>

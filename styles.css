@@ -1,0 +1,144 @@
+body {
+    font-family: cursive;
+    background-color: #7E6363; /* Adjust as needed */
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #3E3232; /* Header color */
+    color: white;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+.intro {
+    background-image: url('image-2.jpg'); /* Replace 'background.jpg' with your image URL */
+    background-size: cover;
+    background-position: center;
+    height:500px;
+    color: white;
+    padding: 100px 20px; /* Increase padding for more space */
+    text-align: center;
+    position: relative; /* Ensure the position context for the overlay */
+}
+
+.intro::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Adjust opacity by changing the last value (0.5) */
+    z-index: 1; /* Ensure the overlay is on top of the background image */
+}
+
+.intro-content {
+    position: relative; /* Ensure the content is on top of the overlay */
+    z-index: 2; /* Ensure the content is on top of the overlay */
+}
+
+.intro h1 {
+    font-size: 50px; /* Increase font size */
+}
+
+.intro p {
+    font-size: 35px; /* Increase font size */
+}
+
+.recipes {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    padding: 20px;
+}
+
+.recipe img {
+
+    width: 470px;
+    height: 320px;
+}
+
+.recipe-link {
+    text-decoration: none;
+    cursor: pointer; 
+    color: inherit;;/* Change cursor to pointer on hover */
+}
+
+.recipe-link:hover {
+    color: #A87C7C; /* Match the color on hover */
+}
+
+article img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+}
+
+.article-container {
+    border: 2px solid #A87C7C; /* Add border around the article */
+    border-radius: 10px; /* Add border radius for rounded corners */
+    padding: 5px; /* Add padding inside the container */
+}
+footer {
+    background-color: #3E3232; /* Header color */
+    color: white;
+    padding: 20px;
+}
+
+button {
+    font-family: cursive; /* Using cursive font */
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #503C3C;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.center-box {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #A87C7C;
+    border: 2px solid #503C3C;
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+    z-index: 1000;
+}
+
+.center-box .content {
+    text-align: center;
+}
+
+#closeButton {
+    margin-top: 10px;
+}
